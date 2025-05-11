@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Bar } from 'react-chartjs-2';
+import { Chart } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -12,6 +12,7 @@ import {
   Title,
   Tooltip,
   Legend,
+  ChartData,
 } from 'chart.js';
 
 ChartJS.register(
@@ -127,6 +128,7 @@ export default function Home() {
         ),
         borderWidth: 1,
         order: 2,
+        type: 'bar' as const,
       },
       {
         label: '平均值',
@@ -134,7 +136,7 @@ export default function Home() {
           processedData.dailyData.reduce((sum, item) => sum + item.value, 0) /
           processedData.dailyData.length
         ),
-        type: 'line',
+        type: 'line' as const,
         borderColor: 'rgba(255, 11, 11, 1)',
         borderWidth: 2,
         borderDash: [5, 5],
@@ -143,7 +145,7 @@ export default function Home() {
         order: 1,
       },
     ],
-  } : null;
+  } satisfies ChartData<'bar' | 'line', number[], string> : null;
 
   return (
     <main className="max-w-7xl mx-auto p-5">
@@ -182,7 +184,8 @@ export default function Home() {
 
           <div className="mt-5">
             {chartData && (
-              <Bar
+              <Chart
+                type="bar"
                 data={chartData}
                 options={{
                   responsive: true,
