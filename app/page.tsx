@@ -13,9 +13,10 @@ import {
   Tooltip,
   Legend,
   ChartData,
+  ChartType,
 } from 'chart.js';
 
-import { Bar, Chart } from 'react-chartjs-2';
+import { Chart } from 'react-chartjs-2';
 
 // Register all required components
 ChartJS.register(
