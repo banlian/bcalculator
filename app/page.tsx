@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Chart } from 'react-chartjs-2';
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -14,6 +14,8 @@ import {
   Legend,
   ChartData,
 } from 'chart.js';
+
+import { Bar, Chart } from 'react-chartjs-2';
 
 // Register all required components
 ChartJS.register(
