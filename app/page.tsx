@@ -55,7 +55,16 @@ export default function Home() {
       if (match) {
         const date = match[1];
         let value = match[2].trim();
-        const numericValue = /^\d+$/.test(value) ? parseInt(value) : 0;
+        
+        // Handle special cases
+        if (value.includes('休息') || value.includes('休') || value === '') {
+          value = '0';
+        }
+        
+        // Remove any non-numeric characters except decimal points
+        value = value.replace(/[^\d.]/g, '');
+        
+        const numericValue = value ? parseFloat(value) : 0;
 
         const month = date.match(/(\d+)月/)?.[0] || '';
         monthlyTotals[month] = (monthlyTotals[month] || 0) + numericValue;
