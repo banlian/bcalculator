@@ -188,6 +188,10 @@ export default function Home() {
             <h3 className="text-lg font-bold mt-3">
               总计: {processedData.totalAmount.toLocaleString()} 元
             </h3>
+            <div className="mt-2 text-gray-700">
+              <p>统计天数: {processedData.dailyData.length} 天</p>
+              <p>日均金额: {(processedData.totalAmount / processedData.dailyData.length).toFixed(2)} 元</p>
+            </div>
           </div>
 
           <div className="mt-5">
