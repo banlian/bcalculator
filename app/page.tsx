@@ -14,6 +14,8 @@ import {
   Legend,
   ChartData,
   ChartType,
+  BarController,
+  LineController,
 } from 'chart.js';
 
 import { Chart } from 'react-chartjs-2';
@@ -27,7 +29,9 @@ ChartJS.register(
   PointElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  BarController,
+  LineController
 );
 
 interface ProcessedData {
